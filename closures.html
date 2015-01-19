@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function createClosure() { // private member pattern
+            var x = 10;
+            return {
+                incrementBy2: function() {
+                    return x+=2;
+                },
+                incrementBy3: function() {
+                    return x+=3;
+                }
+            }
+        }
+
+        var obj = createClosure();
+        o.incrementBy2();
+        console.log(o.incrementBy3());
+
+        function Car(make) {
+            this.getMake= function() {
+                return make;
+            };
+        }
+        var car = new Car('audi');
+        console.log(car.getMake());
+    </script>
+</head>
+<body>
+
+</body>
+</html>

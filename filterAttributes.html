@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="data.js"></script>
+    <script>
+        var dict={};
+        for(var i=0;i<obj.items.length;i++) {
+            if(obj.items[i].open_issues_count > 20) {
+                dict[obj.items[i].id] = {
+                    name: obj.items[i].full_name,
+                    issues: obj.items[i].open_issues_count
+                }
+            }
+        }
+        console.log(dict);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

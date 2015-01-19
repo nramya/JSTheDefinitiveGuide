@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        // todo: Write a String.prototype function that will capitalize every word in a sentence using replace function, regular expression
+
+        // todo: Difference between String.prototype.match and RegEx.prototype.exec
+
+        // todo: Research on arrays and functions
+
+        // todo: DOM - access textnode to retrieve all white spaces
+
+        // todo: MDN -- read up on Node API
+
+        function factorial(num) {
+            factorial.cache = factorial.cache || {}; //
+            if (num <= 1) return 1;
+            else {
+                if(typeof factorial.cache[num] === 'undefined') {
+                    factorial.cache[num] = num * factorial(num - 1);
+                    console.log('Performing calcs for '+ num);
+                }
+                return factorial.cache[num];
+            }
+        }
+
+        console.log('f6 = '+ factorial(6));
+        console.log('f4 = '+ factorial(4));
+        console.log('f10 = '+ factorial(10));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

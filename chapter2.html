@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // Case Sensitivity
+        console.log("CASE SENSITIVITY:");
+        var upper = "CASE";
+        var lower = "case";
+        var initCap = "Case";
+        function caseCheck(string1, string2) {
+            if (string1 === string2){
+                console.log(string1+ " is same as " +string2);
+            } else {
+                console.log(string1+ " and " +string2+ " are different.");
+            }
+        }
+        caseCheck(upper, "CASE");
+        caseCheck(upper,lower);
+        caseCheck(initCap.toLowerCase(),lower);
+        caseCheck(upper.toLowerCase(),upper.toLocaleLowerCase());
+
+        //UNICODE ESCAPE SEQUENCES
+        console.log("UNICODE:");
+        var uniChar = "\u0301";
+        console.log(uniChar);
+        var word = "cafe\u0301";
+        console.log(word);
+        if(word.charAt(4) === uniChar) {
+            console.log(true);
+        }
+
+        //LITERALS
+        console.log("LITERALS:");
+        var x = '10';
+        console.log("Type of \'10\' is " + typeof +x);
+        var object = {x:7, y:"world", z:4};
+        console.log("Type of object is "+ typeof(object));
+        var arr = [23,12,24,7,3];
+        console.log("object.x is "+ object.x);
+        console.log("Type of object.x is "+ typeof(object.x));
+        console.log("Type of array is " + typeof(arr));
+        console.log("Type of \"hello\" is " + typeof("hello"));
+        console.log(arr.join('join'));
+        arr.pop();
+        console.log(arr);
+        arr.push(15);
+        console.log(arr);
+        console.log("Shift: "+ arr.shift());
+        console.log(arr);
+        var π = Math.PI;
+        console.log("Value of Pi is " +π);
+        var Ѵ = Math.sqrt;
+        var num = 2;
+        console.log("Square root of " + num + " is " +Ѵ(num));
+
+        //OPTIONAL SEMICOLON
+        console.log("OPTIONAL SEMICOLON:")
+        var opt
+        opt
+        =
+        100
+        console.log(
+                "Square root of "
+        + opt
+        + " is "
+        +Ѵ(opt)
+        )
+    </script>
+</head>
+<body>
+
+</body>
+</html>

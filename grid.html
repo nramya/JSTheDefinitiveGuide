@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 33.333333333333%;
+            height:33.33333333vh;
+            float: left;
+        }
+        div:nth-child(4n+3) {
+            background-color: #ff9f19;
+        }
+        div:nth-child(4n+2) {
+             background-color: #1811ff;
+        }
+        div:nth-child(4n+1) {
+              background-color: #0dff1b;
+        }
+        div:nth-child(4n+4) {
+            background-color: red;
+        }
+
+        div.previous {
+            background-color: black;
+            transition: background-color 500ms ease-out;
+        }
+        div.current {
+            background-color: white;
+            transition: background-color 500ms ease-out;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+           //click handler for all divs
+            function handler(event) {
+                // remove all current and previouc classes
+                var prev = document.querySelector('.previous');
+                var current = document.querySelector('.current');
+
+                console.log(prev);
+                console.log(current);
+                if (prev) { prev.className = prev.className.replace(/\s?previous/gmi,''); }
+                if (current) { current.className = current.className.replace(/\s?current/gmi,''); }
+
+                console.log(prev);
+                console.log(current);
+
+
+                event.currentTarget.className+= ' current';
+
+                if(event.relatedTarget) event.relatedTarget.className += ' previous';
+
+                console.log('Currently at ', event.currentTarget, ' from ', event.relatedTarget);
+            }
+
+            var divs = Array.prototype.slice.call(document.querySelectorAll('div'));
+            divs.forEach(function (div, index){
+                div.id = index + 1;
+                div.addEventListener('mouseenter', handler);
+            });
+        });
+
+        // todo: drawing using mousemove, mousedown, mouseup, div.style.height, div.style.width
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

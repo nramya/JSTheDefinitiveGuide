@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            padding: 1em;
+            margin: 1em;
+            background-color: rgba(255,0,0,0.5);
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var div1 = document.body.firstElementChild;
+            var div2 = div1.firstElementChild;
+            var div3 = div2.firstElementChild;
+            //todo: difference between addEventListener and onClick
+            div1.addEventListener('click',printEventDetails,true); // true for event capturing phase, false for bubbling phase
+            div2.addEventListener('click',printEventDetails,true);
+            div3.addEventListener('click',printEventDetails,false);
+            div2.addEventListener('click',printEventDetails,false);
+            div1.addEventListener('click',printEventDetails,false);
+
+            function printEventDetails(event) {
+                console.log('This event is registered on ', event.currentTarget, ' and the phase is ', event.eventPhase);
+            }
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+    <!--<div>
+        <span>
+            <a href="https://www.google.com">Google</a>
+        </span>
+    </div> -->
+    <button>Click</button>
+    <script>
+        var div = document.createElement('div');
+        var span = document.createElement('span');
+        var a = document.createElement('a');
+        document.body.appendChild(div);
+        div.appendChild(span);
+        span.appendChild(a);
+
+        a.innerHTML = 'Link to Google';
+        a.href = 'http://www.google.com';
+        a.setAttribute('target', '_blank');
+        a.setAttribute('data-name', 'Christina');
+
+        console.log(document.querySelector('div').dataset);
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function() {
+            console.log('Hello from btn!');
+        })
+    </script>
+    <div data-first-name></div>
+</body>
+</html>

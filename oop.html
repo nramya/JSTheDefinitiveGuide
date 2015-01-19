@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function hello(){
+            //named function
+        }
+        var person = {
+            "name" :{
+                "firstName" : 'abc',
+                "lastName" : 'xyz'
+            },
+            sayHello: function() {
+                //anonymous function expression
+                console.log('Hello from '+ this.name.firstName);
+            }
+        };
+
+        person.name = {
+            firstName : 'dsg',
+            lastName : 'sd'
+        };
+        person.sayHello();
+
+        //CONSTRUCTORS
+        function Person(id, firstName, lastName) {
+            this.id = id;
+            this.name = {};
+            this.name.firstName = firstName;
+            this.name.lastName = lastName;
+        }
+
+        var p = new Person(23, "hjsdh", "ssdf");
+
+        //Functions in JavaScript are objects. So functions can have properties and methods.
+        //Anything other than number, boolean and string are objects.
+        //Object.prototype is a property, which is an object, of the function Object. (Prototype property exists only for constructor functions)
+
+        Person.prototype.sayHello = function() {
+            console.log('Hello from '+ this.name.firstName);
+        };
+
+        var p1 = new Person();
+        Person.type = "Person";
+        Person.prototype.type = "PersonPrototype";
+        //p1.type = "Person1";
+        console.log(p1.type);
+        console.log(p1.toString());
+
+        var s = "new string";
+        console.log(s.length);
+        console.log(typeof s);
+
+        var t = new String("new string");
+        console.log(t.length);
+        console.log(typeof t);
+
+        // To access an object's parent
+        console.log(Object.getPrototypeOf(p1));
+
+        //Creating a child object
+        var obj = {id:32};
+        var child = Object.create(obj);
+        console.log(child.id);
+
+        //Attributes of an object -- metadata
+        //1. Extensible: ability to add properties to an object dynamically
+        //2. ClassName
+        //3. Prototype: reference to parent of the object
+
+        //Properties of an object
+        //1. Writable
+        //2. Enumerable
+        //3. Configurable
+
+        var o = {
+            id:43,
+            name: "hj"
+        };
+        for(var prop in o) { //Enumeration
+            console.log(prop, o[prop]);
+        }
+        //Specific properties can be controlled to not be enumerable
+        var o1 = {
+            id:43,
+            name: "hj"
+        };
+        Object.defineProperty(o1,'name',{enumerable:false});
+        for(var prop in o1) { //Enumeration
+            console.log(prop, o[prop]);
+        }
+        Object.defineProperty(o1,'name',{writable:false, configurable:false});
+        o1.name="dgs";
+        for(var prop in o1) { //Enumeration
+            console.log(prop, o[prop]);
+        }
+        //Object.defineProperty(o1,'name',{configurable:true}); //This is not possible.
+        o1.name="dgs";
+        for(var prop in o1) { //Enumeration
+            console.log(prop, o[prop]);
+        }
+
+        //ARRAYS
+        var arr = [1,2,3];
+        var arr2 = arr.map(square);
+
+        function square(element, index, array) {
+            return element * element;
+        }
+        console.log(arr2);
+
+        var arr3 = arr.filter(function(element){
+            return element % 2 === 0;
+        });
+        console.log(arr3);
+
+        console.log(arr.reduce(function(a,b) {
+            return a + b;
+        }));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
